@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package productPackage;
+
+service Product {
+  
+  rpc getProductById(productId) returns (productItem);
+
+}
+
+message voidNoParam {}
+
+message productItem {
+  int32 id = 1;
+  string name = 2;
+  string price = 3;
+  string state = 4;
+}
+
+message productItems {
+  repeated productItem items = 1;
+}
+
+message productId {
+  int32 productId = 1;
+}
+
+
+
+
+
+service Order {
+  rpc newOrder(orderItem) returns (orderItem);
+}
+
+message orderItem {
+  int32 id = 1;
+  int32 productId = 2;
+  int32 quantity = 3;
+  string state = 4;
+  string price = 5;
+}
+
+
+message orderItems {
+  repeated orderItem items = 1;
+}
+
+message orderId {
+  int32 orderId = 1;
+}
